@@ -10,7 +10,7 @@ import streamlit as st
 # Welcome to Streamlit Snowflake Sample!
 """
 
-"""
+
 # Initialize connection.
 conn = st.experimental_connection('snowpark')
 
@@ -26,4 +26,3 @@ df = load_table()
 for row in df.itertuples():
     st.write(f"{row.NAME} has a :{row.PET}:")
 
-"""
