@@ -9,20 +9,17 @@ import streamlit as st
 """
 # Welcome to Streamlit Snowflake Sample!
 """
+# streamlit_app.py
 
+import streamlit as st
 
 # Initialize connection.
-conn = st.experimental_connection('snowpark')
+conn = st.experimental_connection('snowflake', type='sql')
 
-# Load the table as a dataframe using the Snowpark Session.
-@st.cache_data
-def load_table():
-    with conn.safe_session() as session:
-        return session.table('AMPLITUDE_EVENT').to_pandas()
-
-df = load_table()
+# Perform query.
+df = conn.query('SELECT * from AMPLITUDE_EVENT;', ttl=600)
 
 # Print results.
 for row in df.itertuples():
-    st.write(f"{row.NAME} has a :{row.PET}:")
+    st.write(f"{row.name} has a :{row.pet}:")
 
