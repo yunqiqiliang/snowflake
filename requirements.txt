@@ -1,2 +1,2 @@
-pip install "snowflake-snowpark-python[pandas]"
+snowflake-snowpark-python[pandas]
 -r https://raw.githubusercontent.com/snowflakedb/snowflake-connector-python/main/tested_requirements/requirements_39.reqs
